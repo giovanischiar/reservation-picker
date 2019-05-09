@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:orientation="vertical"
+             tools:context=".ui.CarDetailFragment">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/car"
+            android:layout_marginBottom="@dimen/default_padding"
+    />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/default_padding"
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome: Jeep Renegade"
+                android:textSize="@dimen/textsTitleSize"
+        />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marca: Jeep"
+                android:textSize="@dimen/textsTitleSize"
+        />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ano: 2019"
+                android:textSize="@dimen/textsTitleSize"
+        />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Combustível: Flex"
+                android:textSize="@dimen/textsTitleSize"
+        />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:paddingHorizontal="@dimen/default_padding" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descrição"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/default_padding"
+                android:textSize="@dimen/textsTitleSize"
+        />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Judged on appearance and presence alone, there's plenty to like about the Jeep Renegade. This modern design features striking styling; a substantial, solid feel; and a respectable amount of rear cargo space for its diminutive size. It doesn't take long, though, for the Renegade's charms to wear thin."
+                android:textSize="@dimen/textsContentSize"
+        />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".ui.CarDetailFragment">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hotel"
+            android:layout_marginBottom="@dimen/default_padding"
+    />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/default_padding"
+    >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Marriott Sunnyvale Residence Inn"
+                android:layout_marginBottom="@dimen/default_padding"
+                android:textSize="@dimen/textsTitleSize"
+        />
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/default_padding"
+        >
+            <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/star_big_on"/>
+            <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/star_big_on"/>
+            <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@android:drawable/star_big_on"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <com.google.android.material.tabs.TabLayout android:orientation="vertical" android:paddingHorizontal="@dimen/default_padding" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contact"
+        />
+
+        <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amenities"
+        />
+
+    </com.google.android.material.tabs.TabLayout>
+
+</LinearLayout>
