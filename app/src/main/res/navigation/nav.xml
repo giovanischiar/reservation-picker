@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav"
+            app:startDestination="@id/fragment_reservation_options"
+>
+    <fragment
+            android:id="@+id/fragment_reservation_options"
+            android:label="@string/app_name"
+            android:name="io.schiar.tcc.ui.ReservationOptionsFragment"
+            tools:layout="@layout/fragment_reservation_options"
+    >
+        <action
+                android:id="@+id/fragment_reservation_options_to_fragment_cars"
+                app:destination="@id/fragment_cars"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        />
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_cars"
+            android:label="@string/which_car_model"
+            android:name="io.schiar.tcc.ui.CarsFragment"
+            tools:layout="@layout/fragment_cars"
+    >
+        <action
+                android:id="@+id/fragment_cars_to_fragment_reservation_options"
+                app:destination="@id/fragment_reservation_options"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        />
+    </fragment>
+</navigation>

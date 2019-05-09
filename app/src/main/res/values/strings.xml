@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TCC</string>
+
+    <string name="see_last_reservation">Ver última reserva</string>
+    <string name="see_cars">Ver carros</string>
+    <string name="see_hotels">Ver hotéis</string>
+    <string name="which_car_model">Qual o modelo do carro?</string>
 </resources>
