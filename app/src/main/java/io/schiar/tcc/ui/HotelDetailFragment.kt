@@ -38,8 +38,7 @@ class HotelDetailFragment : Fragment() {
         }
 
         val view = binding.root
-        val fragmentManager = fragmentManager ?: return view
-        val adapter = TabsAdapter(fragmentManager)
+        val adapter = TabsAdapter(childFragmentManager)
         adapter.add(HotelContactFragment(), resources.getString(R.string.contact))
         adapter.add(HotelAmenitiesFragment(), resources.getString(R.string.amenities))
         view.viewPager.adapter = adapter
