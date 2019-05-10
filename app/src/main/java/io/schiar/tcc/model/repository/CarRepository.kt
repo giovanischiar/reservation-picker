@@ -4,7 +4,7 @@ import io.schiar.tcc.model.Car
 import io.schiar.tcc.model.Fuel.GASOLINE
 import io.schiar.tcc.model.Fuel.HYBRID
 
-object CarRepository: CarRepositoryInterface {
+class CarRepository: CarRepositoryInterface {
     private val simplifiedCars: List<Car> = listOf(
         Car("0",
             "Jeep Renegade",
@@ -29,6 +29,10 @@ object CarRepository: CarRepositoryInterface {
             HYBRID,
             "The Toyota C-HR is a subcompact crossover SUV produced by Toyota. The production version of the C-HR was unveiled at the March 2016 Geneva Motor Show.")
     )
+
+    companion object {
+        val instance: CarRepositoryInterface = CarRepository()
+    }
 
     private var currentCar: Car? = null
 

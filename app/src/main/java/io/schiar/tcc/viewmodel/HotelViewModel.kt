@@ -7,7 +7,7 @@ import io.schiar.tcc.model.repository.HotelRepository
 import io.schiar.tcc.model.repository.HotelRepositoryInterface
 import io.schiar.tcc.utilities.BitmapLoader
 
-class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = HotelRepository): ViewModel() {
+class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = HotelRepository.instance): ViewModel() {
     private var currentHotels: List<Hotel> = emptyList()
 
     val hotels: MutableLiveData<List<Preview>> by lazy {

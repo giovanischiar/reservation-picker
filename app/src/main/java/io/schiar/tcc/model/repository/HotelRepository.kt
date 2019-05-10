@@ -3,7 +3,7 @@ package io.schiar.tcc.model.repository
 import io.schiar.tcc.model.Hotel
 import io.schiar.tcc.model.Star.FIRST_CLASS
 
-object HotelRepository: HotelRepositoryInterface {
+class HotelRepository: HotelRepositoryInterface {
     private val simplifiedHotels: List<Hotel> = listOf(
         Hotel("0",
             "Majestic Palace Hotel",
@@ -30,6 +30,10 @@ object HotelRepository: HotelRepositoryInterface {
             listOf("Free Parking", "Minibar", "Air Conditioner", "TV"),
             FIRST_CLASS)
     )
+
+    companion object {
+        val instance: HotelRepositoryInterface = HotelRepository()
+    }
 
     private var currentHotel: Hotel? = null
 

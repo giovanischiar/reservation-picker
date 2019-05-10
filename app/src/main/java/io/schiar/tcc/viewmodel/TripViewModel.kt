@@ -1,6 +1,5 @@
 package io.schiar.tcc.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.schiar.tcc.model.Period
@@ -9,32 +8,32 @@ import io.schiar.tcc.model.repository.*
 import io.schiar.tcc.utilities.BitmapLoader
 import io.schiar.tcc.utilities.DateFormatter
 
-class TripViewModel(private val tripRepository: TripRepositoryInterface = TripRepository): ViewModel() {
+class TripViewModel(private val tripRepository: TripRepositoryInterface = TripRepository.instance): ViewModel() {
     val trip: MutableLiveData<Reservation> by lazy {
         MutableLiveData<Reservation>()
     }
 
-    fun addCarToTrip(carRepository: CarRepositoryInterface = CarRepository) {
+    fun addCarToTrip(carRepository: CarRepositoryInterface = CarRepository.instance) {
         val selectedCar = carRepository.selectedCar ?: return
-        tripRepository.addCar(selectedCar, ::updateTrip)
+        tripRepository.selectCar(selectedCar, ::updateTrip)
     }
 
-    fun addHotelToTrip(hotelRepository: HotelRepositoryInterface = HotelRepository) {
+    fun addHotelToTrip(hotelRepository: HotelRepositoryInterface = HotelRepository.instance) {
         val selectedHotel = hotelRepository.selectedHotel ?: return
-        tripRepository.addHotel(selectedHotel, ::updateTrip)
+        tripRepository.selectHotel(selectedHotel, ::updateTrip)
     }
 
     fun addPeriodToTrip(initDate: Long, endDate: Long) {
         val period = Period(initDate, endDate)
-        tripRepository.addPeriod(period, ::updateTrip)
+        tripRepository.selectPeriod(period, ::updateTrip)
     }
 
     fun addAdultsToTrip(adults: Int) {
-        tripRepository.addAdults(adults, ::updateTrip)
+        tripRepository.selectAdults(adults, ::updateTrip)
     }
 
     fun addChildrenToTrip(children: Int) {
-        tripRepository.addChildren(children, ::updateTrip)
+        tripRepository.selectChildren(children, ::updateTrip)
     }
 
     private fun updateTrip(trip: Trip) {

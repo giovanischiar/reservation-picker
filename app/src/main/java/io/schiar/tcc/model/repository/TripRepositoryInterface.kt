@@ -7,9 +7,9 @@ import io.schiar.tcc.model.Trip
 
 interface TripRepositoryInterface {
     fun fetch(callback: (Trip) -> Unit)
-    fun addCar(car: Car, callback: (Trip) -> Unit)
-    fun addHotel(hotel: Hotel, callback: (Trip) -> Unit)
-    fun addPeriod(period: Period, callback: (Trip) -> Unit)
-    fun addAdults(adults: Int, callback: (Trip) -> Unit)
-    fun addChildren(children: Int, callback: (Trip) -> Unit)
+    fun selectCar(car: Car, callback: (Trip) -> Unit)
+    fun selectHotel(hotel: Hotel, callback: (Trip) -> Unit)
+    fun selectPeriod(period: Period, callback: (Trip) -> Unit)
+    fun selectAdults(adults: Int, callback: (Trip) -> Unit)
+    fun selectChildren(children: Int, callback: (Trip) -> Unit)
 }

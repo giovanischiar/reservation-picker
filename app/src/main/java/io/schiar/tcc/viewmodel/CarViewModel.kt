@@ -7,7 +7,7 @@ import io.schiar.tcc.model.repository.CarRepository
 import io.schiar.tcc.model.repository.CarRepositoryInterface
 import io.schiar.tcc.utilities.BitmapLoader
 
-class CarViewModel(private val carRepository: CarRepositoryInterface = CarRepository): ViewModel() {
+class CarViewModel(private val carRepository: CarRepositoryInterface = CarRepository.instance): ViewModel() {
     private var currentCars: List<Car> = emptyList()
 
     val cars: MutableLiveData<List<Preview>> by lazy {
