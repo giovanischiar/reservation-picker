@@ -5,17 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import io.schiar.tcc.R
+import androidx.lifecycle.ViewModelProviders
+import io.schiar.tcc.databinding.FragmentReservationBinding
+import io.schiar.tcc.viewmodel.TripViewModel
 
 class ReservationFragment : Fragment() {
+
+    private lateinit var viewModel: TripViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reservation, container, false)
+        val tripViewClass = TripViewModel::class.java
+        viewModel = ViewModelProviders.of(requireActivity()).get(tripViewClass)
+        val binding = FragmentReservationBinding.inflate(inflater, container, false).apply {
+            lifecycleOwner = this@ReservationFragment
+            viewModel = this@ReservationFragment.viewModel
+            executePendingBindings()
+        }
+        return binding.root
     }
 
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.schiar.tcc.R
+import io.schiar.tcc.viewmodel.Preview
 import kotlinx.android.synthetic.main.adapter_preview.view.*
 
 class PreviewAdapter(
@@ -32,7 +33,7 @@ class PreviewAdapter(
     ): RecyclerView.ViewHolder(itemView) {
 
         fun bindView(preview: Preview, index:Int) {
-            itemView.photo.setImageBitmap(preview.photo)
+            preview.photo.loadInto(itemView.photo)
             itemView.name.text = preview.name
             itemView.setOnClickListener { onClickPreviewListener.onPreviewClick(index, itemView) }
         }

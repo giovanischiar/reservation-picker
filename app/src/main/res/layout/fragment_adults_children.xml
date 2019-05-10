@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <data>
+       <variable name="viewModel" type="io.schiar.tcc.viewmodel.TripViewModel"/>
+    </data>
+
+    <FrameLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 tools:context=".ui.AdultsChildrenFragment"
+                 android:padding="@dimen/default_padding"
+    >
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+        >
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/adults">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:afterTextChanged="@{(e) -> viewModel.addAdultsToTrip(Integer.parseInt(e.toString().matches(`\\d+`) ? e.toString() : `0`))}"
+                />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/children">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:afterTextChanged="@{(e) -> viewModel.addChildrenToTrip(Integer.parseInt(e.toString().matches(`\\d+`) ? e.toString() : `0`))}"
+                />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <Button
+                android:id="@+id/reserve_hotel_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/make_reservation"
+                android:layout_gravity="bottom"
+                android:background="@color/colorAccent"
+                android:textColor="#fff"
+        />
+    </FrameLayout>
+
+</layout>

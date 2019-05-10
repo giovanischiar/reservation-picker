@@ -1,5 +1,6 @@
 package io.schiar.tcc.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.schiar.tcc.model.Period

@@ -1,66 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-              android:orientation="vertical"
-             tools:context=".ui.CarDetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+>
 
-    <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/car"
-            android:layout_marginBottom="@dimen/default_padding"
-    />
+    <data>
+        <variable name="viewModel" type="io.schiar.tcc.viewmodel.CarViewModel"/>
+    </data>
+
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/default_padding"
-    >
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome: Jeep Renegade"
-                android:textSize="@dimen/textsTitleSize"
-        />
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Marca: Jeep"
-                android:textSize="@dimen/textsTitleSize"
-        />
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ano: 2019"
-                android:textSize="@dimen/textsTitleSize"
-        />
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Combustível: Flex"
-                android:textSize="@dimen/textsTitleSize"
-        />
-    </LinearLayout>
-    <LinearLayout android:orientation="vertical" android:paddingHorizontal="@dimen/default_padding" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Descrição"
-                android:layout_gravity="center_horizontal"
+            tools:context=".ui.CarDetailFragment">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/car"
                 android:layout_marginBottom="@dimen/default_padding"
-                android:textSize="@dimen/textsTitleSize"
+                app:bitmapLoader="@{viewModel.selectedCar.photo}"
         />
-        <TextView
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Judged on appearance and presence alone, there's plenty to like about the Jeep Renegade. This modern design features striking styling; a substantial, solid feel; and a respectable amount of rear cargo space for its diminutive size. It doesn't take long, though, for the Renegade's charms to wear thin."
-                android:textSize="@dimen/textsContentSize"
-        />
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Nome: ` + viewModel.selectedCar.name}"
+                    android:textSize="@dimen/textsTitleSize"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Marca: ` + viewModel.selectedCar.brand}"
+                    android:textSize="@dimen/textsTitleSize"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Ano: ` + viewModel.selectedCar.year}"
+                    android:textSize="@dimen/textsTitleSize"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Combustível: ` + viewModel.selectedCar.fuel}"
+                    android:textSize="@dimen/textsTitleSize"
+            />
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/default_padding"
+                android:paddingRight="@dimen/default_padding"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/default_padding"
+                    android:textSize="@dimen/textsTitleSize"
+            />
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.selectedCar.description}"
+                    android:textSize="@dimen/textsContentSize"
+            />
 
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</layout>
