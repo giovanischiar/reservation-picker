@@ -46,6 +46,7 @@ object BindingAdapters {
     @BindingAdapter("amenities")
     @JvmStatic
     fun setAmenities(layout: LinearLayout, amenities: List<String>) {
+        layout.removeAllViews()
         for (amenity in amenities) {
             val amenityView = LayoutInflater.from(layout.context).inflate(R.layout.amenity, layout, false)
             amenityView.name.text = String.format(layout.context.getString(R.string.amenity), amenity)
