@@ -14,10 +14,23 @@ import io.schiar.tcc.viewmodel.TripViewModel
 import kotlinx.android.synthetic.main.fragment_date_range.view.*
 import java.util.*
 
+/**
+ * Fragmento que mostra parte da tela de escolha de período para a reserva.
+ * @property viewModel ViewModel necessário para mostrar os dados necessários do modelo na View.
+ */
 class DateRangeFragment : Fragment(), DateRangeCalendarView.CalendarListener {
 
     private lateinit var viewModel: TripViewModel
 
+    /**
+     * É carregado o [TripViewModel] para passar ao databinding do XML, assim o XML tem acesso aos atributos e métodos
+     * do ViewModel. É definido o listener do botão de ok para navegar até o fragmento [ReservationFragment]. Também
+     * define listener do componente de calendário.
+     * @param inflater usado para carregar o XML do fragmento.
+     * @param container o componente pai do fragmento.
+     * @param savedInstanceState dados do estado anterior do fragmento.
+     * @return view correspondente ao fragmento.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +46,11 @@ class DateRangeFragment : Fragment(), DateRangeCalendarView.CalendarListener {
         return view
     }
 
+    /**
+     * Envia ao [TripViewModel] os dados de data inicial e final da reserva.
+     * @param startDate data inicial da reserva.
+     * @param endDate data final da reserva.
+     */
     override fun onDateRangeSelected(startDate: Calendar?, endDate: Calendar?) {
         startDate ?: return; endDate ?: return
         viewModel.addPeriodToTrip(startDate.timeInMillis, endDate.timeInMillis)

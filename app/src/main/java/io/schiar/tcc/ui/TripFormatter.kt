@@ -3,8 +3,18 @@ package io.schiar.tcc.ui
 import android.view.View
 import io.schiar.tcc.R
 
+/**
+ * Formatação de dados de adultos e crianças da viagem.
+ */
 object TripFormatter {
 
+    /**
+     * Formata uma string de acordo com a quantidade de crianças e adultos definida. se não há crianças ou adultos é
+     * ocultada da string.
+     * @param view onde formatar a string.
+     * @param adults quantidade de adultos.
+     * @param children quantidade de crianças.
+     */
     @JvmStatic
     fun formatAdultChildren(view: View, adults: Int?, children: Int?): String {
         val stringBuilder = StringBuilder()

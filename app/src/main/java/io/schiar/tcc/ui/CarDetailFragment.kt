@@ -11,11 +11,24 @@ import io.schiar.tcc.databinding.FragmentCarDetailBinding
 import io.schiar.tcc.viewmodel.CarViewModel
 import io.schiar.tcc.viewmodel.TripViewModel
 
+/**
+ * Fragmento que mostra os detalhes de um carro.
+ * @property viewModel ViewModel necessário para mostrar os dados necessários do modelo na View
+ * @property tripViewModel ViewModel necessário para mostrar os dados necessários do modelo na View
+ */
 class CarDetailFragment : Fragment() {
 
     private lateinit var viewModel: CarViewModel
     private lateinit var tripViewModel: TripViewModel
 
+    /**
+     * É carregado o [CarViewModel] e o [TripViewModel] para passar ao databinding do XML, assim o XML tem acesso aos
+     * atributos e métodos do ViewModel.
+     * @param inflater usado para carregar o XML do fragmento.
+     * @param container o componente pai do fragmento.
+     * @param savedInstanceState dados do estado anterior do fragmento.
+     * @return view correspondente ao fragmento.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,15 +44,30 @@ class CarDetailFragment : Fragment() {
         }
         return binding.root
     }
+
+    /**
+     * Avisa a atividade que há opções de menu na barra superior.
+     *  @param savedInstanceState dados do estado anterior do fragmento.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
 
+    /**
+     * Carrega o componente de menu que irá ser mostrado na barra superior.
+     * @param menu componente de menu.
+     * @param inflater carregador do XML.
+     */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
     }
 
+    /**
+     * Ao clicar na opção de menu "escolher" adiciona o carro a reserva e navegue para [ReservationOptionsFragment].
+     * @param item o item de menu selecionado.
+     * @return true se foi selecionado com sucesso, false caso contrário.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         return if (id == R.id.choose_opt) {

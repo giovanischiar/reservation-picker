@@ -10,8 +10,18 @@ import androidx.navigation.Navigation
 import io.schiar.tcc.R
 import kotlinx.android.synthetic.main.fragment_reservation_options.view.*
 
+/**
+ * Fragmento da tela de escolha de reservas.
+ */
 class ReservationOptionsFragment : Fragment() {
 
+    /**
+     * São definidos os listeners dos botões da view. Cada botão ativa uma transição do navigation para outro fragmento.
+     * @param inflater usado para carregar o XML do fragmento.
+     * @param container o componente pai do fragmento.
+     * @param savedInstanceState dados do estado anterior do fragmento.
+     * @return view correspondente ao fragmento.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
