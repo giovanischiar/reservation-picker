@@ -2,6 +2,16 @@ package io.schiar.tcc.viewmodel
 
 import io.schiar.tcc.utilities.BitmapLoader
 
+/**
+ * Detalhes da reserva de um hotel.
+ * @property name nome de um hotel.
+ * @property photo carregador de imagem de um hotel.
+ * @property address endereço de um hotel.
+ * @property phone telefone de um hotel.
+ * @property website site de um hotel.
+ * @property amenities lista de amenidades de um hotel.
+ * @property stars quantidade de estrelas de um hotel.
+ */
 data class HotelDetailed(
     val name: String,
     val photo: BitmapLoader,
