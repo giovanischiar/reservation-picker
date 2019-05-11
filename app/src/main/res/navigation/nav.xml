@@ -126,6 +126,8 @@
         <action
                 android:id="@+id/fragment_car_detail_to_fragment_reservation_options"
                 app:destination="@id/fragment_reservation_options"
+                app:popUpTo="@id/fragment_reservation_options"
+                app:popUpToInclusive="true"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -185,6 +187,8 @@
         <action
                 android:id="@+id/fragment_adults_children_to_fragment_reservation_options"
                 app:destination="@id/fragment_reservation_options"
+                app:popUpTo="@id/fragment_reservation_options"
+                app:popUpToInclusive="true"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
