@@ -22,7 +22,7 @@ data class Hotel(
     val stars: Star?
 ) {
     /**
-     * Forma reduzida de construir uma reserva de hotel, para os testes unitários.
+     * Forma reduzida de construir uma reserva de hotel, para a lista principal de hoteis.
      */
     constructor(id: String, name: String, photo: String) : this(id, name, photo, null, null, null, null, null)
 }

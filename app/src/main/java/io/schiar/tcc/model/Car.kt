@@ -20,7 +20,7 @@ data class Car(
     val description: String?
 ) {
     /**
-     * Forma reduzida de construir uma reserva de carro, para os testes unitários.
+     * Forma reduzida de construir uma reserva de carro, para a lista principal de carros.
      */
     constructor(id: String, name: String, photo: String) : this(id, name, photo, null, null, null, null)
 }
