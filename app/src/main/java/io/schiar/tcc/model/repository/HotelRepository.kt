@@ -2,7 +2,15 @@ package io.schiar.tcc.model.repository
 
 import io.schiar.tcc.model.Hotel
 import io.schiar.tcc.model.Star.FIRST_CLASS
+import io.schiar.tcc.model.repository.CarRepository.Companion.instance
 
+/**
+ * Gerador de dados de hotéis para a aplicacação.
+ * @property simplifiedHotels hotéis gerados para a tela de lista de carros.
+ * @property hotels hotéis gerados para serem exibidos na View.
+ * @property instance singleton usado na aplicação para buscar os hotéis.
+ * @property selectedHotel hotel canditado a ser reservado.
+ */
 @Suppress("SpellCheckingInspection")
 class HotelRepository: HotelRepositoryInterface {
 
@@ -43,10 +51,19 @@ class HotelRepository: HotelRepositoryInterface {
     override val selectedHotel: Hotel?
         get() = currentHotel
 
+    /**
+     * Busca a lista de hotéis a ser exibida na View.
+     * @param callback usado para receber a lista de hotéis buscada.
+     */
     override fun fetch(callback: (List<Hotel>) -> Unit) {
         callback(simplifiedHotels)
     }
 
+    /**
+     * Busca os detalhes de um hotel a ser exibido na View.
+     * @param id identificador do hotel.
+     * @param callback usado para receber o hotel buscado.
+     */
     override fun fetch(id: String, callback: (Hotel) -> Unit) {
         val hotel = hotels.first { it.id == id }
         currentHotel = hotel

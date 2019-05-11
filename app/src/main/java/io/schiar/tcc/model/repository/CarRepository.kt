@@ -4,6 +4,13 @@ import io.schiar.tcc.model.Car
 import io.schiar.tcc.model.Fuel.GASOLINE
 import io.schiar.tcc.model.Fuel.HYBRID
 
+/**
+ * Gerador de dados de carros para a aplicacação.
+ * @property simplifiedCars carros gerados para a tela de lista de carros.
+ * @property cars carros gerados para serem exibidos na View.
+ * @property instance singleton usado na aplicação para buscar os carros.
+ * @property selectedCar carro canditado a ser reservado.
+ */
 class CarRepository: CarRepositoryInterface {
     private val simplifiedCars: List<Car> = listOf(
         Car("0",
@@ -39,10 +46,19 @@ class CarRepository: CarRepositoryInterface {
     override val selectedCar: Car?
         get() = currentCar
 
+    /**
+     * Busca a lista de carros a ser exibida na View.
+     * @param callback usado para receber a lista de carros buscada.
+     */
     override fun fetch(callback: (List<Car>) -> Unit) {
         callback(simplifiedCars)
     }
 
+    /**
+     * Busca os detalhes de um carro a ser exibida na View.
+     * @param id identificador do carro.
+     * @param callback usado para receber o carro buscado.
+     */
     override fun fetch(id: String, callback: (Car) -> Unit) {
         val car = cars.first { it.id == id }
         currentCar = car
