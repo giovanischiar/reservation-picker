@@ -20,7 +20,7 @@ import org.mockito.Mockito
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class TripRepositoryUnitTest {
-    lateinit var tripRepository: TripRepositoryInterface
+    private lateinit var tripRepository: TripRepositoryInterface
 
     @Before
     fun prepare() {

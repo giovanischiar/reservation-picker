@@ -8,13 +8,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import io.schiar.tcc.BR.viewModel
 
 import io.schiar.tcc.R
 import io.schiar.tcc.viewmodel.CarViewModel
 import io.schiar.tcc.viewmodel.Preview
 import kotlinx.android.synthetic.main.fragment_cars.view.*
-import kotlinx.android.synthetic.main.fragment_hotels.view.*
 
 class CarsFragment : Fragment(), OnClickPreviewListener {
 

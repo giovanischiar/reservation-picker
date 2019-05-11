@@ -43,4 +43,5 @@ class HotelsFragment : Fragment(), OnClickPreviewListener {
         val navId = R.id.fragment_hotels_to_fragment_hotel_detail
         Navigation.findNavController(view).navigate(navId)
     }
+
 }

@@ -10,17 +10,19 @@
     </data>
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context=".ui.CarDetailFragment">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.CarDetailFragment"
+    >
 
         <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="@dimen/default_padding"
-                app:bitmapLoader="@{viewModel.selectedHotel.photo}"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="@dimen/default_padding"
+            app:bitmapLoader="@{viewModel.selectedHotel.photo}"
+            android:contentDescription="@string/hotel_photo"
         />
         <LinearLayout
                 android:layout_width="match_parent"
@@ -31,39 +33,40 @@
                 android:paddingRight="@dimen/default_padding"
         >
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@{viewModel.selectedHotel.name}"
-                    android:layout_marginBottom="@dimen/default_padding"
-                    android:textSize="@dimen/textsTitleSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@{viewModel.selectedHotel.name}"
+                android:layout_marginBottom="@dimen/default_padding"
+                android:textSize="@dimen/textsTitleSize"
             />
 
             <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    app:stars="@{viewModel.selectedHotel.stars}"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:stars="@{viewModel.selectedHotel.stars}"
             />
 
         </LinearLayout>
 
             <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/viewPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            >
                 <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/tabs"
-                        android:orientation="vertical"
-                        android:paddingLeft="@dimen/default_padding"
-                        android:paddingRight="@dimen/default_padding"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/colorPrimary"
-                        app:tabMode="fixed"
-                        android:theme="@style/ThemeOverlay.AppCompat.Light"
-                        android:layout_gravity="top"
+                    android:id="@+id/tabs"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/default_padding"
+                    android:paddingRight="@dimen/default_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    app:tabMode="fixed"
+                    android:theme="@style/ThemeOverlay.AppCompat.Light"
+                    android:layout_gravity="top"
                 />
             </androidx.viewpager.widget.ViewPager>
     </LinearLayout>

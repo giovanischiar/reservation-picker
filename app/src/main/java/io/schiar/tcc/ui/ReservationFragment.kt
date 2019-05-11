@@ -27,5 +27,4 @@ class ReservationFragment : Fragment() {
         return binding.root
     }
 
-
 }

@@ -17,7 +17,7 @@ import org.mockito.Mockito.verify
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class HotelRepositoryUnitTest {
-    lateinit var hotelRepository: HotelRepositoryInterface
+    private lateinit var hotelRepository: HotelRepositoryInterface
 
     @Before
     fun prepare() {

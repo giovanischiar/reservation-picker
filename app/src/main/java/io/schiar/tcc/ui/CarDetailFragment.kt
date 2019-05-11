@@ -9,7 +9,6 @@ import androidx.navigation.Navigation
 import io.schiar.tcc.R
 import io.schiar.tcc.databinding.FragmentCarDetailBinding
 import io.schiar.tcc.viewmodel.CarViewModel
-import io.schiar.tcc.viewmodel.HotelViewModel
 import io.schiar.tcc.viewmodel.TripViewModel
 
 class CarDetailFragment : Fragment() {

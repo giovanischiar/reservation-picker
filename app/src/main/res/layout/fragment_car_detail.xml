@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 >
 
     <data>
@@ -9,74 +10,74 @@
     </data>
 
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context=".ui.CarDetailFragment">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.CarDetailFragment"
+    >
 
         <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/car"
-                android:layout_marginBottom="@dimen/default_padding"
-                app:bitmapLoader="@{viewModel.selectedCar.photo}"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="@dimen/default_padding"
+            app:bitmapLoader="@{viewModel.selectedCar.photo}"
+            android:contentDescription="@string/car_photo"
         />
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/default_padding"
-                android:paddingRight="@dimen/default_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
         >
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{`Nome: ` + viewModel.selectedCar.name}"
-                    android:textSize="@dimen/textsTitleSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Nome: ` + viewModel.selectedCar.name}"
+                android:textSize="@dimen/textsTitleSize"
             />
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{`Marca: ` + viewModel.selectedCar.brand}"
-                    android:textSize="@dimen/textsTitleSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Marca: ` + viewModel.selectedCar.brand}"
+                android:textSize="@dimen/textsTitleSize"
             />
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{`Ano: ` + viewModel.selectedCar.year}"
-                    android:textSize="@dimen/textsTitleSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Ano: ` + viewModel.selectedCar.year}"
+                android:textSize="@dimen/textsTitleSize"
             />
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{`Combustível: ` + viewModel.selectedCar.fuel}"
-                    android:textSize="@dimen/textsTitleSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Combustível: ` + viewModel.selectedCar.fuel}"
+                android:textSize="@dimen/textsTitleSize"
             />
         </LinearLayout>
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/default_padding"
-                android:paddingRight="@dimen/default_padding"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/default_padding"
+            android:paddingRight="@dimen/default_padding"
         >
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/description"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/default_padding"
-                    android:textSize="@dimen/textsTitleSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/default_padding"
+                android:textSize="@dimen/textsTitleSize"
             />
             <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.selectedCar.description}"
-                    android:textSize="@dimen/textsContentSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.selectedCar.description}"
+                android:textSize="@dimen/textsContentSize"
             />
-
         </LinearLayout>
     </LinearLayout>
 

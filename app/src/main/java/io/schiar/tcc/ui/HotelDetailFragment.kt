@@ -3,20 +3,16 @@ package io.schiar.tcc.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import io.schiar.tcc.R
-import android.view.MenuInflater
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import io.schiar.tcc.viewmodel.HotelViewModel
+import io.schiar.tcc.R
 import io.schiar.tcc.databinding.FragmentHotelDetailBinding
+import io.schiar.tcc.viewmodel.HotelViewModel
 import io.schiar.tcc.viewmodel.TripViewModel
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
-import io.schiar.tcc.ui.HotelDetailFragment.TabsAdapter
 import kotlinx.android.synthetic.main.fragment_hotel_detail.*
 import kotlinx.android.synthetic.main.fragment_hotel_detail.view.*
-
 
 class HotelDetailFragment : Fragment() {
 
@@ -88,4 +84,5 @@ class HotelDetailFragment : Fragment() {
             return listFragmentsTitle[position]
         }
     }
+
 }

@@ -30,7 +30,7 @@ class CarViewModel(private val carRepository: CarRepositoryInterface = CarReposi
     }
 
     fun fetch(index: Int) {
-        val selectedCar = currentCars.get(index)
+        val selectedCar = currentCars[index]
         carRepository.fetch(selectedCar.id, ::updateSelectedCar)
     }
 

@@ -30,7 +30,7 @@ class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = Hot
     }
 
     fun fetch(index: Int) {
-        val selectedHotel = currentHotels.get(index)
+        val selectedHotel = currentHotels[index]
         hotelRepository.fetch(selectedHotel.id, ::updateSelectedHotel)
     }
 

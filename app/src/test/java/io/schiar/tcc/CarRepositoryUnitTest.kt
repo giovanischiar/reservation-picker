@@ -17,7 +17,7 @@ import org.mockito.Mockito.verify
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class CarRepositoryUnitTest {
-    lateinit var carRepository: CarRepositoryInterface
+    private lateinit var carRepository: CarRepositoryInterface
 
     @Before
     fun prepare() {

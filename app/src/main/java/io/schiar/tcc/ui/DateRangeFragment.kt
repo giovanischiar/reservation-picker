@@ -1,7 +1,6 @@
 package io.schiar.tcc.ui
 
 import android.os.Bundle
-import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View

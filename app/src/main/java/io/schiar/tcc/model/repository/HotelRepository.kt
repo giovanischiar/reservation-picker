@@ -3,7 +3,9 @@ package io.schiar.tcc.model.repository
 import io.schiar.tcc.model.Hotel
 import io.schiar.tcc.model.Star.FIRST_CLASS
 
+@Suppress("SpellCheckingInspection")
 class HotelRepository: HotelRepositoryInterface {
+
     private val simplifiedHotels: List<Hotel> = listOf(
         Hotel("0",
             "Majestic Palace Hotel",
@@ -12,6 +14,7 @@ class HotelRepository: HotelRepositoryInterface {
             "Costão do Santinho Resort",
             "https://live.staticflickr.com/3695/13706481074_b3a9be8f81_k.jpg")
     )
+
     private val hotels: List<Hotel> = listOf(
         Hotel("0",
             "Majestic Palace Hotel",
