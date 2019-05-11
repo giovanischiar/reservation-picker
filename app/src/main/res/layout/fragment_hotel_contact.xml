@@ -2,46 +2,52 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@layout/fragment_hotel_contact">
+    tools:keep="@layout/fragment_hotel_contact"
+>
 
     <data>
         <variable name="viewModel" type="io.schiar.tcc.viewmodel.HotelViewModel"/>
     </data>
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.HotelContactFragment"
-        android:padding="@dimen/default_padding"
     >
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            tools:ignore="UselessParent"
+            tools:context=".ui.HotelContactFragment"
+            android:padding="@dimen/default_padding"
         >
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_title"
-                android:text="@{`Endereço: ` + viewModel.selectedHotel.address}"
-                android:paddingBottom="@dimen/default_padding"
-            />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_title"
-                android:text="@{`Telefone: ` + viewModel.selectedHotel.phone}"
-                android:paddingBottom="@dimen/default_padding"
-            />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_title"
-                android:text="@{`Site: ` + viewModel.selectedHotel.website}"
-            />
-        </LinearLayout>
-    </FrameLayout>
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                tools:ignore="UselessParent"
+            >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_title"
+                    android:text="@{`Endereço: ` + viewModel.selectedHotel.address}"
+                    android:paddingBottom="@dimen/default_padding"
+                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_title"
+                    android:text="@{`Telefone: ` + viewModel.selectedHotel.phone}"
+                    android:paddingBottom="@dimen/default_padding"
+                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_title"
+                    android:text="@{`Site: ` + viewModel.selectedHotel.website}"
+                />
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
 
 </layout>

@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:keep="@layout/fragment_reservation">
+    tools:keep="@layout/fragment_reservation"
+>
     <data>
         <import type="io.schiar.tcc.ui.TripFormatter"/>
         <import type="android.view.View"/>
