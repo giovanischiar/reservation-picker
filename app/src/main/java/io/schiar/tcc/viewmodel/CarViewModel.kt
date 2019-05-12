@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 import io.schiar.tcc.model.Car
 import io.schiar.tcc.model.repository.CarRepository
 import io.schiar.tcc.model.repository.CarRepositoryInterface
-import io.schiar.tcc.utilities.BitmapLoader
+import io.schiar.tcc.utilities.BitmapLoaderFactory
+import io.schiar.tcc.utilities.BitmapLoaderFactoryInterface
 
 /**
  * Recebe mensagens da visão solicitando dados dos carros disponíveis para reserva.
@@ -17,7 +18,8 @@ import io.schiar.tcc.utilities.BitmapLoader
  * @property selectedCar detalhes do carro atual selecionado. Utiliza-se o wrapper LiveData para as mudanças no carro selecionado
  * serem atualizadas pela View.
  */
-class CarViewModel(private val carRepository: CarRepositoryInterface = CarRepository.instance) : ViewModel() {
+class CarViewModel(private val carRepository: CarRepositoryInterface = CarRepository.instance,
+                   private val bitmapLoaderFactory: BitmapLoaderFactoryInterface = BitmapLoaderFactory) : ViewModel() {
     private var currentCars: List<Car> = emptyList()
 
     val cars: MutableLiveData<List<Preview>> by lazy {
@@ -35,7 +37,7 @@ class CarViewModel(private val carRepository: CarRepositoryInterface = CarReposi
         carRepository.fetch { cars ->
             this.currentCars = cars
             val carPreviews = cars.map { car ->
-                val bitmapLoader = BitmapLoader(car.photo)
+                val bitmapLoader = bitmapLoaderFactory.bitmapLoader(car.photo)
                 return@map Preview(bitmapLoader, car.name)
             }
             this.cars.postValue(carPreviews)
@@ -63,7 +65,7 @@ class CarViewModel(private val carRepository: CarRepositoryInterface = CarReposi
         val description = car.description ?: return
         val carDetailed = CarDetailed(
             car.name,
-            BitmapLoader(car.photo),
+            bitmapLoaderFactory.bitmapLoader(car.photo),
             year,
             brand,
             fuel,

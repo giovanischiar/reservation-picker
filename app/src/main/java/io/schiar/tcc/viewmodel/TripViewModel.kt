@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 import io.schiar.tcc.model.Period
 import io.schiar.tcc.model.Trip
 import io.schiar.tcc.model.repository.*
-import io.schiar.tcc.utilities.BitmapLoader
+import io.schiar.tcc.utilities.BitmapLoaderFactory
+import io.schiar.tcc.utilities.BitmapLoaderFactoryInterface
 import io.schiar.tcc.utilities.DateFormatter
 
 /**
@@ -15,7 +16,8 @@ import io.schiar.tcc.utilities.DateFormatter
  * @property trip viagem atual. Utiliza-se o wrapper LiveData para as mudanças na viagem atual
  * serem atualizadas pela View.
  */
-class TripViewModel(private val tripRepository: TripRepositoryInterface = TripRepository.instance) : ViewModel() {
+class TripViewModel(private val tripRepository: TripRepositoryInterface = TripRepository.instance,
+                    private val bitmapLoaderFactory: BitmapLoaderFactoryInterface = BitmapLoaderFactory) : ViewModel() {
     val trip: MutableLiveData<Reservation> by lazy {
         MutableLiveData<Reservation>()
     }
@@ -71,12 +73,12 @@ class TripViewModel(private val tripRepository: TripRepositoryInterface = TripRe
     private fun updateTrip(trip: Trip) {
         var carPreview: Preview? = null
         trip.car?.let {
-            carPreview = Preview(BitmapLoader(it.photo), it.name)
+            carPreview = Preview(bitmapLoaderFactory.bitmapLoader(it.photo), it.name)
         }
 
         var hotelPreview: Preview? = null
         trip.hotel?.let {
-            hotelPreview = Preview(BitmapLoader(it.photo), it.name)
+            hotelPreview = Preview(bitmapLoaderFactory.bitmapLoader(it.photo), it.name)
         }
 
         var beginDate: String? = null

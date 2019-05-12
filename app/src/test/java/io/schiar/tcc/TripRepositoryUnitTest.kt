@@ -1,13 +1,13 @@
 package io.schiar.tcc
 
+import io.schiar.tcc.mock.GenericMock.Companion.any
+import io.schiar.tcc.mock.GenericMock.Companion.mock
 import io.schiar.tcc.model.Car
 import io.schiar.tcc.model.Hotel
 import io.schiar.tcc.model.Period
 import io.schiar.tcc.model.Trip
 import io.schiar.tcc.model.repository.TripRepository
 import io.schiar.tcc.model.repository.TripRepositoryInterface
-import io.schiar.tcc.utilities.GenericMock.Companion.any
-import io.schiar.tcc.utilities.GenericMock.Companion.mock
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before

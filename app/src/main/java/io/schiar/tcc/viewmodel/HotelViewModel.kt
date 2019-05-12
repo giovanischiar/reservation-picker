@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 import io.schiar.tcc.model.Hotel
 import io.schiar.tcc.model.repository.HotelRepository
 import io.schiar.tcc.model.repository.HotelRepositoryInterface
-import io.schiar.tcc.utilities.BitmapLoader
+import io.schiar.tcc.utilities.BitmapLoaderFactory
+import io.schiar.tcc.utilities.BitmapLoaderFactoryInterface
 
 /**
  * Recebe mensagens da visão solicitando dados dos hotéis disponíveis para reserva.
@@ -17,7 +18,8 @@ import io.schiar.tcc.utilities.BitmapLoader
  * @property selectedHotel detalhes do hotel atual selecionado. Utiliza-se o wrapper LiveData para as mudanças no hotel selecionado
  * serem atualizadas pela View.
  */
-class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = HotelRepository.instance) : ViewModel() {
+class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = HotelRepository.instance,
+                     private val bitmapLoaderFactory: BitmapLoaderFactoryInterface = BitmapLoaderFactory) : ViewModel() {
     private var currentHotels: List<Hotel> = emptyList()
 
     val hotels: MutableLiveData<List<Preview>> by lazy {
@@ -35,7 +37,7 @@ class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = Hot
         hotelRepository.fetch { hotels ->
             this.currentHotels = hotels
             val hotelPreviews = hotels.map { hotel ->
-                val bitmapLoader = BitmapLoader(hotel.photo)
+                val bitmapLoader = bitmapLoaderFactory.bitmapLoader(hotel.photo)
                 return@map Preview(bitmapLoader, hotel.name)
             }
             this.hotels.postValue(hotelPreviews)
@@ -64,7 +66,7 @@ class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = Hot
         val stars = hotel.stars?.intValue ?: return
         val hotelDetailed = HotelDetailed(
             hotel.name,
-            BitmapLoader(hotel.photo),
+            bitmapLoaderFactory.bitmapLoader(hotel.photo),
             address,
             phone,
             website,

@@ -24,7 +24,7 @@ interface CarRepositoryInterface {
     fun fetch(callback: (List<Car>) -> Unit)
 
     /**
-     * Busca os detalhes de um carro a ser exibida na View.
+     * Busca os detalhes de um carro a ser exibido na View.
      * @param id identificador do carro.
      * @param callback usado para receber o carro buscado.
      */

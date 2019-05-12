@@ -1,14 +1,14 @@
 package io.schiar.tcc
 
+import io.schiar.tcc.mock.GenericMock.Companion.any
+import io.schiar.tcc.mock.GenericMock.Companion.mock
 import io.schiar.tcc.model.Hotel
 import io.schiar.tcc.model.repository.HotelRepository
 import io.schiar.tcc.model.repository.HotelRepositoryInterface
-import io.schiar.tcc.utilities.GenericMock.Companion.any
-import io.schiar.tcc.utilities.GenericMock.Companion.mock
-import io.schiar.tcc.utilities.GenericMock.Companion.spyLambda
 import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
+import org.mockito.Mockito.spy
 import org.mockito.Mockito.verify
 
 /**
@@ -43,7 +43,7 @@ class HotelRepositoryUnitTest {
             hotelRepository.fetch(hotels.first().id, fetchByIdCallback)
             verify(fetchByIdCallback).invoke(any())
         }
-        val fetchCallbackSpy = spyLambda(fetchCallback)
+        val fetchCallbackSpy = spy(fetchCallback)
         hotelRepository.fetch(fetchCallbackSpy)
         verify(fetchCallbackSpy).invoke(any())
     }

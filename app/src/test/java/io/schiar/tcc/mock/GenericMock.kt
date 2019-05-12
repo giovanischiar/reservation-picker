@@ -1,6 +1,5 @@
-package io.schiar.tcc.utilities
+package io.schiar.tcc.mock
 
-import org.mockito.AdditionalAnswers.delegatesTo
 import org.mockito.Mockito
 
 class GenericMock {
@@ -11,10 +10,6 @@ class GenericMock {
 
         inline fun <reified T> mock(): T {
             return Mockito.mock(T::class.java)
-        }
-
-        inline fun <reified T> spyLambda(lambda: T): T {
-            return Mockito.mock(T::class.java, delegatesTo<Any>(lambda))
         }
     }
 }
