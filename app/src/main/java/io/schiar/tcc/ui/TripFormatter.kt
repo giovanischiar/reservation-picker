@@ -9,8 +9,8 @@ import io.schiar.tcc.R
 object TripFormatter {
 
     /**
-     * Formata uma string de acordo com a quantidade de crianças e adultos definida. se não há crianças ou adultos é
-     * ocultada da string.
+     * Formata uma string de acordo com a quantidade de crianças e adultos definida. Se não há crianças ou adultos,
+     * a informação é ocultada da string.
      * @param view onde formatar a string.
      * @param adults quantidade de adultos.
      * @param children quantidade de crianças.

@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_hotel_detail.view.*
 /**
  * Fragmento que mostra os detalhes de um hotel.
  * @property viewModel ViewModel necessário para mostrar os dados necessários do modelo na View
- * @property tripViewModel ViewModel necessário para mostrar os dados necessários do modelo na View
+ * @property tripViewModel ViewModel necessário para atualizar os dados da viagem no modelo
  */
 class HotelDetailFragment : Fragment() {
 

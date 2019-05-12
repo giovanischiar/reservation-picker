@@ -1,14 +1,13 @@
 package io.schiar.tcc.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-
 import io.schiar.tcc.R
 import io.schiar.tcc.viewmodel.CarViewModel
 import io.schiar.tcc.viewmodel.Preview
@@ -43,15 +42,15 @@ class CarsFragment : Fragment(), OnClickPreviewListener {
      */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val hotelViewClass = CarViewModel::class.java
-        viewModel = ViewModelProviders.of(requireActivity()).get(hotelViewClass)
+        val carViewModelClass = CarViewModel::class.java
+        viewModel = ViewModelProviders.of(requireActivity()).get(carViewModelClass)
         viewModel.cars.observe(this, Observer { onPreviewsListChange(it) })
         viewModel.fetch()
     }
 
     /**
      * Observador das mudanças da lista de carros, definição do Adapter responsável para configuração da lista.
-     * @param previews lista dos dados dos carros.
+     * @param previews lista simplificada dos dados dos carros.
      */
     private fun onPreviewsListChange(previews: List<Preview>) {
         val view = view ?: return

@@ -3,7 +3,7 @@ package io.schiar.tcc.viewmodel
 import io.schiar.tcc.utilities.BitmapLoader
 
 /**
- * Detalhes da reserva de um hotel.
+ * Representação dos detalhes da reserva de um hotel do ponto de vista da visão.
  * @property name nome de um hotel.
  * @property photo carregador de imagem de um hotel.
  * @property address endereço de um hotel.

@@ -8,15 +8,16 @@ import io.schiar.tcc.model.repository.HotelRepositoryInterface
 import io.schiar.tcc.utilities.BitmapLoader
 
 /**
- * Formata dados do modelo para serem enviados para serem exibidos na View.
+ * Recebe mensagens da visão solicitando dados dos hotéis disponíveis para reserva.
+ * Formata esses dados e os disponibiliza para a visão através dos objetos LiveData.
  * @property hotelRepository fornecedor de objetos de modelo para a View.
  * @property currentHotels lista atual de hotéis.
- * @property hotels lista de dados de foto e nome de hotéis. Utiliza-se o wrapper LiveData para as mudanças na lista serem
+ * @property hotels lista de hotéis com dados de foto e nome de cada hotel. Utiliza-se o wrapper LiveData para as mudanças na lista serem
  * atualizadas pela View.
- * @property selectedHotel detalhes do hotel atual selecionado. Utiliza-se o wrapper LiveData para as mudanças na lista
+ * @property selectedHotel detalhes do hotel atual selecionado. Utiliza-se o wrapper LiveData para as mudanças no hotel selecionado
  * serem atualizadas pela View.
  */
-class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = HotelRepository.instance): ViewModel() {
+class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = HotelRepository.instance) : ViewModel() {
     private var currentHotels: List<Hotel> = emptyList()
 
     val hotels: MutableLiveData<List<Preview>> by lazy {
@@ -26,7 +27,6 @@ class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = Hot
     val selectedHotel: MutableLiveData<HotelDetailed> by lazy {
         MutableLiveData<HotelDetailed>()
     }
-
 
     /**
      * Busca os dados de hotéis e atualiza o LiveData de [hotels].
@@ -52,9 +52,9 @@ class HotelViewModel(private val hotelRepository: HotelRepositoryInterface = Hot
     }
 
     /**
-     * Constroi o objeto a ter seus atributos exibidos na View a partir do objeto de modelo, e Atualiza o LiveData de
+     * Constrói o objeto a ter seus atributos exibidos na View a partir do objeto de modelo, e atualiza o LiveData de
      * [selectedHotel]
-     * @param car o objeto de modelo de uma reserva de hotel.
+     * @param hotel o objeto de modelo de uma reserva de hotel.
      */
     private fun updateSelectedHotel(hotel: Hotel) {
         val address = hotel.address ?: return

@@ -7,6 +7,13 @@ import io.schiar.tcc.model.Trip
 
 /**
  * Contrato de um fornecedor de dados para a aplicação.
+ * O padrão repository proporciona uma abstração da camada de dados da aplicação.
+ * Além disso, ele centraliza o uso dos objetos do domínio.
+ * Através de um repository, outros componentes da aplicação conseguem
+ * manejar os objetos do domínio de forma simples, sem precisar
+ * conhecer de fato de onde esses objetos vêm e onde são armazenados (internet, banco de dados, caches, etc).
+ * Isso permite que todos os componentes que usam o repository possuam um baixo
+ * acomplamento com as camadas de serviço e persistência da aplicação.
  */
 interface TripRepositoryInterface {
 
@@ -38,15 +45,15 @@ interface TripRepositoryInterface {
     fun selectPeriod(period: Period, callback: (Trip) -> Unit)
 
     /**
-     * Atualiza a viagem com a quantidade de adultos selecionado.
+     * Atualiza a viagem com a quantidade de adultos selecionada.
      * @param adults quantidade de adultos da reserva.
      * @param callback usado para receber a viagem atualizada.
      */
     fun selectAdults(adults: Int, callback: (Trip) -> Unit)
 
     /**
-     * Atualiza a viagem com a quantidade de crianças selecionado.
-     * @param adults quantidade de crianças da reserva.
+     * Atualiza a viagem com a quantidade de crianças selecionada.
+     * @param children quantidade de crianças da reserva.
      * @param callback usado para receber a viagem atualizada.
      */
     fun selectChildren(children: Int, callback: (Trip) -> Unit)

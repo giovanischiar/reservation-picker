@@ -9,7 +9,7 @@ import io.schiar.tcc.utilities.BitmapLoader
 import kotlinx.android.synthetic.main.amenity.view.*
 
 /**
- * Utilizado para tratamento de dados do ViewModel para serem apresentados na View.
+ * Utilizado para tratamento de dados do ViewModel para serem apresentados na View através de data binding.
  */
 object BindingAdapters {
     /**

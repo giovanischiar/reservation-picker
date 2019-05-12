@@ -3,7 +3,7 @@ package io.schiar.tcc.viewmodel
 import io.schiar.tcc.utilities.BitmapLoader
 
 /**
- * Detalhes da reserva de um carro.
+ * Representação dos detalhes da reserva de um carro do ponto de vista da visão.
  * @property name nome de um carro.
  * @property photo carregador de imagem de um carro.
  * @property year ano de fabricação de um carro.

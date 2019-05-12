@@ -3,16 +3,29 @@ package io.schiar.tcc.model.repository
 import io.schiar.tcc.model.Hotel
 import io.schiar.tcc.model.Star.FIRST_CLASS
 import io.schiar.tcc.model.repository.CarRepository.Companion.instance
+import io.schiar.tcc.model.repository.HotelRepository.Companion.instance
 
 /**
- * Gerador de dados de hotéis para a aplicacação.
- * @property simplifiedHotels hotéis gerados para a tela de lista de carros.
- * @property hotels hotéis gerados para serem exibidos na View.
- * @property instance singleton usado na aplicação para buscar os hotéis.
- * @property selectedHotel hotel canditado a ser reservado.
+ * Implementação de um repository de hotéis. Fornece os dados a respeito dos
+ * hotéis disponíveis para reserva.
+ *
+ * Por motivos de simplificação, essa classe gera dados de hotéis para a aplicação
+ * e os mantém em memória durante a execução. Numa aplicação real, essa classe se comunicaria
+ * com as diferentes camadas de dados da aplicação, como por exemplo serviços e persistência.
+ *
+ * @property simplifiedHotels hotéis gerados para a tela de lista de hotéis.
+ * Numa aplicação real, esses objetos viriam de uma camada de dados da aplicação.
+ * @property hotels hotéis gerados para serem exibidos na tela de detalhes do hotel.
+ * Numa aplicação real, esses objetos viriam de uma camada de dados da aplicação.
+ * @property instance instância de HotelRepository compartilhada com diferentes componentes da aplicação.
+ * Essa instância difere um pouco da implementação tradicional do padrão singleton em Kotlin, a qual define a classe como um object.
+ * Prefere-se definir a instância compartilhada de HotelRepository dessa forma pois essa abordagem não
+ * impede que outras instâncias de HotelRepository sejam criadas, o que possibilita que a classe seja testada
+ * com testes unitários.
+ * @property selectedHotel hotel candidato a ser reservado.
  */
 @Suppress("SpellCheckingInspection")
-class HotelRepository: HotelRepositoryInterface {
+class HotelRepository : HotelRepositoryInterface {
 
     private val simplifiedHotels: List<Hotel> = listOf(
         Hotel("0",

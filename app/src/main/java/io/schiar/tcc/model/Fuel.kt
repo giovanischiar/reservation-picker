@@ -1,7 +1,7 @@
 package io.schiar.tcc.model
 
 /**
- * Tipos de combustível associada com string representativa.
+ * Tipos de combustível associados com string representativa.
  * @property stringValue string que representa o tipo de combustível.
  */
 enum class Fuel(val stringValue: String) {

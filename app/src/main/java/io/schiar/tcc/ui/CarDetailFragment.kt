@@ -14,7 +14,7 @@ import io.schiar.tcc.viewmodel.TripViewModel
 /**
  * Fragmento que mostra os detalhes de um carro.
  * @property viewModel ViewModel necessário para mostrar os dados necessários do modelo na View
- * @property tripViewModel ViewModel necessário para mostrar os dados necessários do modelo na View
+ * @property tripViewModel ViewModel necessário para atualizar os dados da viagem no modelo
  */
 class CarDetailFragment : Fragment() {
 

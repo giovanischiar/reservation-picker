@@ -4,15 +4,26 @@ import io.schiar.tcc.model.Car
 import io.schiar.tcc.model.Hotel
 import io.schiar.tcc.model.Period
 import io.schiar.tcc.model.Trip
-import io.schiar.tcc.model.repository.CarRepository.Companion.instance
-import io.schiar.tcc.model.repository.HotelRepository.Companion.instance
+import io.schiar.tcc.model.repository.TripRepository.Companion.instance
 
 /**
- * Gerador de dado de viagem para a aplicacação.
- * @property instance singleton usado na aplicação para configurar a viagem.
+ * Implementação de um repository de uma viagem. Permite que uma viagem seja criada
+ * e montada passo a passo por ações do usuário. Também fornece os dados a respeito da reserva
+ * atual.
+ *
+ * Por motivos de simplificação, essa classe mantém os dados da viagem atual em memória durante a execução.
+ * Numa aplicação real, essa classe se comunicaria com as diferentes camadas de dados da aplicação,
+ * como por exemplo serviços e persistência.
+ *
+ * @property instance instância de TripRepository compartilhada com diferentes componentes da aplicação.
+ * Essa instância difere um pouco da implementação tradicional do padrão singleton em Kotlin, a qual define a classe como um object.
+ * Prefere-se definir a instância compartilhada de TripRepository dessa forma pois essa abordagem não
+ * impede que outras instâncias de TripRepository sejam criadas, o que possibilita que a classe seja testada
+ * com testes unitários.
  * @property trip a viagem atual.
  */
-class TripRepository: TripRepositoryInterface {
+class TripRepository : TripRepositoryInterface {
+
     companion object {
         val instance: TripRepositoryInterface = TripRepository()
     }
@@ -58,7 +69,7 @@ class TripRepository: TripRepositoryInterface {
     }
 
     /**
-     * Atualiza a viagem com a quantidade de adultos selecionado.
+     * Atualiza a viagem com a quantidade de adultos selecionada.
      * @param adults quantidade de adultos da reserva.
      * @param callback usado para receber a viagem atualizada.
      */
@@ -68,8 +79,8 @@ class TripRepository: TripRepositoryInterface {
     }
 
     /**
-     * Atualiza a viagem com a quantidade de crianças selecionado.
-     * @param adults quantidade de crianças da reserva.
+     * Atualiza a viagem com a quantidade de crianças selecionada.
+     * @param children quantidade de crianças da reserva.
      * @param callback usado para receber a viagem atualizada.
      */
     override fun selectChildren(children: Int, callback: (Trip) -> Unit) {

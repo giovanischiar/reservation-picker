@@ -3,15 +3,28 @@ package io.schiar.tcc.model.repository
 import io.schiar.tcc.model.Car
 import io.schiar.tcc.model.Fuel.GASOLINE
 import io.schiar.tcc.model.Fuel.HYBRID
+import io.schiar.tcc.model.repository.CarRepository.Companion.instance
 
 /**
- * Gerador de dados de carros para a aplicacação.
- * @property simplifiedCars carros gerados para a tela de lista de carros.
- * @property cars carros gerados para serem exibidos na View.
- * @property instance singleton usado na aplicação para buscar os carros.
- * @property selectedCar carro canditado a ser reservado.
+ * Implementação de um repository de carros. Fornece os dados a respeito dos
+ * carros disponíveis para reserva.
+ *
+ * Por motivos de simplificação, essa classe gera dados de carros para a aplicação
+ * e os mantém em memória durante a execução. Numa aplicação real, essa classe se comunicaria
+ * com as diferentes camadas de dados da aplicação, como por exemplo serviços e persistência.
+ *
+ * @property simplifiedCars carros gerados para serem exibidos na lista de carros.
+ * Numa aplicação real, esses objetos viriam de uma camada de dados da aplicação.
+ * @property cars carros gerados para serem exibidos na tela de detalhes do carro.
+ * Numa aplicação real, esses objetos viriam de uma camada de dados da aplicação.
+ * @property instance instância de CarRepository compartilhada com diferentes componentes da aplicação.
+ * Essa instância difere um pouco da implementação tradicional do padrão singleton em Kotlin, a qual define a classe como um object.
+ * Prefere-se definir a instância compartilhada de CarRepository dessa forma pois essa abordagem não
+ * impede que outras instâncias de CarRepository sejam criadas, o que possibilita que a classe seja testada
+ * com testes unitários.
+ * @property selectedCar carro candidato a ser reservado.
  */
-class CarRepository: CarRepositoryInterface {
+class CarRepository : CarRepositoryInterface {
     private val simplifiedCars: List<Car> = listOf(
         Car("0",
             "Jeep Renegade",

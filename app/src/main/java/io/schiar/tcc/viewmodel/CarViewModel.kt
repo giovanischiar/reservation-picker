@@ -8,15 +8,16 @@ import io.schiar.tcc.model.repository.CarRepositoryInterface
 import io.schiar.tcc.utilities.BitmapLoader
 
 /**
- * Formata dados do modelo para serem enviados para serem exibidos na View.
- * @property carRepository fornecedor de objetos de modelo para a View.
+ * Recebe mensagens da visão solicitando dados dos carros disponíveis para reserva.
+ * Formata esses dados e os disponibiliza para a visão através dos objetos LiveData.
+ * @property carRepository fornecedor de objetos de modelo para o ViewModel
  * @property currentCars lista atual de carros.
- * @property cars lista de dados de foto e nome de carros. Utiliza-se o wrapper LiveData para as mudanças na lista serem
+ * @property cars lista de carros com dados de foto e nome de cada carro. Utiliza-se o wrapper LiveData para as mudanças na lista serem
  * atualizadas pela View.
- * @property selectedCar detalhes do carro atual selecionado. Utiliza-se o wrapper LiveData para as mudanças na lista
+ * @property selectedCar detalhes do carro atual selecionado. Utiliza-se o wrapper LiveData para as mudanças no carro selecionado
  * serem atualizadas pela View.
  */
-class CarViewModel(private val carRepository: CarRepositoryInterface = CarRepository.instance): ViewModel() {
+class CarViewModel(private val carRepository: CarRepositoryInterface = CarRepository.instance) : ViewModel() {
     private var currentCars: List<Car> = emptyList()
 
     val cars: MutableLiveData<List<Preview>> by lazy {
@@ -43,7 +44,7 @@ class CarViewModel(private val carRepository: CarRepositoryInterface = CarReposi
 
     /**
      * Busca os detalhes de um carro e atualiza o LiveData de [selectedCar].
-     * @param índice de um carro na lists.
+     * @param index índice de um carro na lista.
      */
     fun fetch(index: Int) {
         val selectedCar = currentCars[index]
@@ -51,8 +52,8 @@ class CarViewModel(private val carRepository: CarRepositoryInterface = CarReposi
     }
 
     /**
-     * Constroi o objeto a ter seus atributos exibidos na View a partir do objeto de modelo, e Atualiza o LiveData de
-     * [selectedCar]
+     * Constrói o objeto a ter seus atributos exibidos na View a partir do objeto de modelo, e atualiza o LiveData de
+     * [selectedCar].
      * @param car o objeto de modelo de uma reserva de carro.
      */
     private fun updateSelectedCar(car: Car) {
