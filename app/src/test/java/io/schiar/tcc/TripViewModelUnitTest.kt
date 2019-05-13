@@ -16,6 +16,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mockito.verify
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 class TripViewModelUnitTest {
@@ -77,8 +79,10 @@ class TripViewModelUnitTest {
     @Test
     fun addPeriodToTrip_tripContainsBeginDateAndEndDate() {
         tripViewModel.addPeriodToTrip(1410480000000, 1419494400000)
-        assertEquals("9/11/14", tripViewModel.trip.value!!.beginDate)
-        assertEquals("12/25/14", tripViewModel.trip.value!!.endDate)
+        val simpleDateFormat = SimpleDateFormat("MM/dd/yy", Locale.ENGLISH)
+        val formatter = DateFormat.getDateInstance(DateFormat.SHORT)
+        assertEquals(formatter.format(simpleDateFormat.parse("9/11/14")), tripViewModel.trip.value!!.beginDate)
+        assertEquals(formatter.format(simpleDateFormat.parse("12/25/14")), tripViewModel.trip.value!!.endDate)
     }
 
     @Test
