@@ -1,7 +1,7 @@
 package io.schiar.tcc
 
-import io.schiar.tcc.mock.GenericMock.Companion.any
-import io.schiar.tcc.mock.GenericMock.Companion.mock
+import io.schiar.tcc.mock.GenericMockFactory.Companion.any
+import io.schiar.tcc.mock.GenericMockFactory.Companion.mock
 import io.schiar.tcc.model.Car
 import io.schiar.tcc.model.repository.CarRepository
 import io.schiar.tcc.model.repository.CarRepositoryInterface

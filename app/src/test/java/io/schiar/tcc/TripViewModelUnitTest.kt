@@ -2,8 +2,8 @@ package io.schiar.tcc
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import io.schiar.tcc.mock.GenericMock.Companion.any
-import io.schiar.tcc.mock.GenericMock.Companion.mock
+import io.schiar.tcc.mock.GenericMockFactory.Companion.any
+import io.schiar.tcc.mock.GenericMockFactory.Companion.mock
 import io.schiar.tcc.mock.MockBitmapLoaderFactory
 import io.schiar.tcc.mock.MockCarRepository
 import io.schiar.tcc.mock.MockHotelRepository
